@@ -1,16 +1,16 @@
 from fastapi import FastAPI
-from diabetes_prediction.api.schemas import (
+from src.diabetes_prediction.api.schemas import (
     PatientData,
     PredictionResponse,
     ExplainRequest,
 )
-from diabetes_prediction.pipeline.predict_one_sample import predict_single_sample
+from src.diabetes_prediction.pipeline.predict_one_sample import predict_single_sample
 
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 
 
-from diabetes_prediction.api.llm import explain_prediction
+from src.diabetes_prediction.api.llm import explain_prediction
 
 app = FastAPI(title="Diabetes Prediction API")
 
