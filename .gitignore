@@ -1,11 +1,9 @@
 *.json
 *.parquet
 *.csv
-models/*.pkl
 models/*.joblib
 __pycache__/
 *.pyc
-src/models/*.pkl
 
 catboost_info
 
