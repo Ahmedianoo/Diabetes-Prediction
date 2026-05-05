@@ -2,7 +2,7 @@ from pathlib import Path
 import sys
 import joblib
 
-from diabetes_prediction.transformation.transformation import DataTransformation
+from src.diabetes_prediction.transformation.transformation import DataTransformation
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(PROJECT_ROOT))

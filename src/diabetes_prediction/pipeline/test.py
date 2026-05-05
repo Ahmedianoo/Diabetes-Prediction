@@ -1,4 +1,4 @@
-from diabetes_prediction.pipeline.pipeline import predict_single_sample
+from src.diabetes_prediction.pipeline.pipeline import predict_single_sample
 
 sample_input = {
     "gender": "Female",
