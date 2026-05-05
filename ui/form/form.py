@@ -1,17 +1,5 @@
 import streamlit as st
 import requests
-import os
-from dotenv import load_dotenv
-
-# =========================
-# LOAD ENV
-# =========================
-load_dotenv()
-API_URL = os.getenv("API_URL")
-
-if not API_URL:
-    st.error("API_URL is missing in .env file")
-    st.stop()
 
 
 def form():
@@ -63,7 +51,10 @@ def form():
             "blood_glucose_level": blood_glucose_level,
         }
 
-        response = requests.post(f"{API_URL}/predict", json=payload)
+        response = requests.post(
+            f"https://diabetes-prediction-production-fbd6.up.railway.app/predict",
+            json=payload,
+        )
         result = response.json()
 
         explain_payload = {
@@ -73,7 +64,8 @@ def form():
         }
 
         explain_response = requests.post(
-            f"{API_URL}/explain", json=explain_payload
+            f"https://diabetes-prediction-production-fbd6.up.railway.app/explain",
+            json=explain_payload,
         )
         explanation = explain_response.json()["explanation"]
 
@@ -162,4 +154,3 @@ def form():
         st.divider()
         if st.button("Reset — Check Another Patient"):
             st.rerun()
-
