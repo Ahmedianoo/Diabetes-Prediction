@@ -52,7 +52,7 @@ def form():
         }
 
         response = requests.post(
-            f"https://diabetes-prediction-production-fbd6.up.railway.app/predict",
+            f"http://127.0.0.1:8000/predict",
             json=payload,
         )
         result = response.json()
@@ -64,7 +64,7 @@ def form():
         }
 
         explain_response = requests.post(
-            f"https://diabetes-prediction-production-fbd6.up.railway.app/explain",
+            f"http://127.0.0.1:8000/explain",
             json=explain_payload,
         )
         explanation = explain_response.json()["explanation"]
