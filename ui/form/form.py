@@ -1,5 +1,17 @@
 import streamlit as st
 import requests
+import os
+from dotenv import load_dotenv
+
+# =========================
+# LOAD ENV
+# =========================
+load_dotenv()
+API_URL = os.getenv("API_URL")
+
+if not API_URL:
+    st.error("API_URL is missing in .env file")
+    st.stop()
 
 
 def form():
@@ -17,23 +29,26 @@ def form():
                 "Smoking History",
                 ["No Info", "never", "not current", "current", "ever", "former"],
             )
+
         hypertension = st.radio("Do you have hypertension?", ["Yes", "No"])
         heart_disease = st.radio("Do you have heart disease?", ["Yes", "No"])
+
         bmi = st.select_slider(
             "BMI",
-            options=[round(x * 0.1, 1) for x in range(100, 1000)],  # 10.0 to 99.9
+            options=[round(x * 0.1, 1) for x in range(100, 1000)],
             value=25.0,
         )
 
         HbA1c_level = st.select_slider(
             "HbA1c Level",
-            options=[round(x * 0.1, 1) for x in range(35, 150)],  # 3.5 to 14.9
+            options=[round(x * 0.1, 1) for x in range(35, 150)],
             value=5.5,
         )
 
         blood_glucose_level = st.slider(
             "Blood Glucose Level (mg/dL)", min_value=80, max_value=300, value=100
         )
+
         submitted = st.form_submit_button("Submit")
 
     if submitted:
@@ -48,17 +63,17 @@ def form():
             "blood_glucose_level": blood_glucose_level,
         }
 
-        response = requests.post("http://127.0.0.1:8000/predict", json=payload)
+        response = requests.post(f"{API_URL}/predict", json=payload)
         result = response.json()
 
-        # Explain
         explain_payload = {
             "data": payload,
             "prediction": result["prediction"],
             "probability": result["probability"],
         }
+
         explain_response = requests.post(
-            "http://127.0.0.1:8000/explain", json=explain_payload
+            f"{API_URL}/explain", json=explain_payload
         )
         explanation = explain_response.json()["explanation"]
 
@@ -147,3 +162,4 @@ def form():
         st.divider()
         if st.button("Reset — Check Another Patient"):
             st.rerun()
+
