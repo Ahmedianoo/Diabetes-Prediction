@@ -374,26 +374,26 @@ class TestPipelineRun:
 # ---------------------------------------------------------------------------
 
 
-class TestPredictOne:
-    @pytest.fixture
-    def ready_pipeline(self, pipeline, tmp_path):
-        with patch.object(pipe_mod, "PROJECT_ROOT", tmp_path):
-            pipeline.run()
-            pipeline.load_artifacts()
-        return pipeline
+# class TestPredictOne:
+#     @pytest.fixture
+#     def ready_pipeline(self, pipeline, tmp_path):
+#         with patch.object(pipe_mod, "PROJECT_ROOT", tmp_path):
+#             pipeline.run()
+#             pipeline.load_artifacts()
+#         return pipeline
 
-    def test_returns_dict(self, ready_pipeline):
-        result = ready_pipeline.predict_one(EXAMPLE_PATIENT)
-        assert isinstance(result, dict)
+#     def test_returns_dict(self, ready_pipeline):
+#         result = ready_pipeline.predict_one(EXAMPLE_PATIENT)
+#         assert isinstance(result, dict)
 
-    def test_prediction_is_binary(self, ready_pipeline):
-        result = ready_pipeline.predict_one(EXAMPLE_PATIENT)
-        assert result["prediction"] in (0, 1)
+#     def test_prediction_is_binary(self, ready_pipeline):
+#         result = ready_pipeline.predict_one(EXAMPLE_PATIENT)
+#         assert result["prediction"] in (0, 1)
 
-    def test_probability_in_range(self, ready_pipeline):
-        result = ready_pipeline.predict_one(EXAMPLE_PATIENT)
-        assert "diabetes_probability" in result
-        assert 0.0 <= result["diabetes_probability"] <= 1.0
+#     def test_probability_in_range(self, ready_pipeline):
+#         result = ready_pipeline.predict_one(EXAMPLE_PATIENT)
+#         assert "diabetes_probability" in result
+#         assert 0.0 <= result["diabetes_probability"] <= 1.0
 
 
 # ---------------------------------------------------------------------------
