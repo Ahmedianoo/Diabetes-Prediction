@@ -1,4 +1,4 @@
-altair==6.0.0 ; python_version >= "3.11" and python_version < "3.14"
+altair>=5.0,<6.0 ; python_version >= "3.11" and python_version < "3.14"
 annotated-doc==0.0.4 ; python_version >= "3.11" and python_version < "3.14"
 annotated-types==0.7.0 ; python_version >= "3.11" and python_version < "3.14"
 anyio==4.13.0 ; python_version >= "3.11" and python_version < "3.14"
