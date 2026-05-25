@@ -304,7 +304,7 @@ MLflow was used to track:
 - Model comparison
 
 <p align="center">
-  <img src="images/mlflow..jpeg" width="1000"/>
+  <img src="images/mlflow.jpeg" width="1000"/>
 </p>
 
 ---
