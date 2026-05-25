@@ -34,14 +34,15 @@ Dataset used:
 
 ## Key Results
 
-| Metric | Score |
-|---|---|
-| Accuracy | 96.59% |
-| Precision | 78.42% |
-| Recall | 84.83% |
-| F1-Score | 81.50% |
-| ROC-AUC | 98.30% |
-| PR-AUC | 91.56% |
+| Metric | Validation | Test |
+|---|---|---|
+| Accuracy | 96.79% | 96.59% |
+| Precision | 80.09% | 78.42% |
+| Recall | 84.75% | 84.83% |
+| F1-Score | 82.35% | 81.50% |
+| ROC-AUC | 98.41% | 98.30% |
+| PR-AUC | 92.01% | 91.56% |
+| MCC | 80.63% | 79.70% |
 
 ---
 
@@ -303,7 +304,7 @@ MLflow was used to track:
 - Model comparison
 
 <p align="center">
-  <img src="images/mlflow.png" width="1000"/>
+  <img src="images/mlflow.jpg" width="1000"/>
 </p>
 
 ---
@@ -323,12 +324,14 @@ Random Forest was selected as the final model because it achieved the best balan
 
 ## Balancing Strategy Comparison
 
-| Experiment | Accuracy | Precision | Recall | F1 |
-|---|---|---|---|---|
-| Random Forest - Transformed | 0.9697 | 0.9428 | 0.6997 | 0.8032 |
-| Random Forest - ADASYN | 0.9679 | 0.8009 | 0.8475 | 0.8235 |
-| Random Forest - SMOTE | 0.9343 | 0.5832 | 0.9009 | 0.7081 |
-| Random Forest - SMOTETomek | 0.9698 | 0.8262 | 0.8333 | 0.8297 |
+| Experiment | Accuracy | Precision | Recall | F1-Score | ROC-AUC | PR-AUC | MCC |
+|---|---|---|---|---|---|---|---|
+| Random Forest - Transformed | 0.9697 | 0.9428 | 0.6997 | 0.8032 | 0.9672 | 0.8663 | 0.7975 |
+| Random Forest - Transformed (class_weight balanced) | 0.9703 | 0.9607 | 0.6918 | 0.8044 | 0.9650 | 0.8619 | 0.8012 |
+| Random Forest - ADASYN | 0.9679 | 0.8009 | 0.8475 | 0.8235 | 0.9841 | 0.9201 | 0.8063 |
+| Random Forest - SMOTE | 0.9343 | 0.5832 | 0.9009 | 0.7081 | 0.9775 | 0.8883 | 0.6932 |
+| Random Forest - SMOTE-ENN | 0.9343 | 0.5832 | 0.9009 | 0.7081 | 0.9775 | 0.8883 | 0.6932 |
+| Random Forest - SMOTE-TOMEK | 0.9698 | 0.8262 | 0.8333 | 0.8297 | 0.9831 | 0.9186 | 0.8132 |
 
 ADASYN was selected as the balancing strategy for the final model.
 
@@ -354,10 +357,10 @@ Several Random Forest configurations were evaluated to optimize recall and F1-sc
 
 ## Final Results
 
-| Split | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
-|---|---|---|---|---|---|
-| Validation | 0.9679 | 0.8009 | 0.8475 | 0.8235 | 0.9841 |
-| Test | 0.9659 | 0.7842 | 0.8483 | 0.8150 | 0.9830 |
+| Split | Accuracy | Precision | Recall | F1-Score | ROC-AUC | PR-AUC | MCC |
+|---|---|---|---|---|---|---|---|
+| Validation | 0.9679 | 0.8009 | 0.8475 | 0.8235 | 0.9841 | 0.9201 | 0.8063 |
+| Test | 0.9659 | 0.7842 | 0.8483 | 0.8150 | 0.9830 | 0.9156 | 0.7970 |
 
 ---
 
