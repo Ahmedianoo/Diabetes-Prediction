@@ -463,7 +463,7 @@ The selected model achieves high recall while maintaining strong precision and o
 ## Clone Repository
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Ahmedianoo/Diabetes-Prediction
 cd diabetes-prediction
 ```
 
