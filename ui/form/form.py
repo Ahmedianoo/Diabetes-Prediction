@@ -148,7 +148,7 @@ def form():
                 unsafe_allow_html=True,
             )
 
-        st.markdown("### 🧠 AI Explanation")
+        st.markdown("### AI Explanation")
         st.info(explanation)
 
         st.divider()
