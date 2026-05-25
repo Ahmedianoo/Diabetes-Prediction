@@ -107,3 +107,4 @@ win32-setctime==1.2.0 ; python_version >= "3.11" and python_version < "3.14" and
 xgboost==3.2.0 ; python_version >= "3.11" and python_version < "3.14"
 streamlit
 requests
+plotly
