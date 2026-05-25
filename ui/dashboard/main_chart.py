@@ -18,7 +18,7 @@ def main_chart(df):
     dm = df[df["diabetes"] == 1][selected_col]
 
     fig = make_subplots(
-        rows=1, cols=2, subplot_titles=("Distribution (Histogram + KDE)", "Box")
+        rows=1, cols=2, subplot_titles=("Distribution (Histogram)", "Box Plot")
     )
 
     # Histogram
