@@ -38,7 +38,7 @@ def main():
             bmi_diabetes_chart(df)
 
     with tab_interactive:
-        st.header("Interactive Form")
+        st.header("Prediction Form")
         form()
 
 
