@@ -52,7 +52,7 @@ def form():
         }
 
         response = requests.post(
-            f"http://127.0.0.1:8000/predict",
+            f"https://eng-seif-diabetes-prediction.hf.space/predict",
             json=payload,
         )
         result = response.json()
@@ -64,7 +64,7 @@ def form():
         }
 
         explain_response = requests.post(
-            f"http://127.0.0.1:8000/explain",
+            f"https://eng-seif-diabetes-prediction.hf.space/explain",
             json=explain_payload,
         )
         explanation = explain_response.json()["explanation"]
