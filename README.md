@@ -1,6 +1,6 @@
 # Diabetes Prediction System
 
-An end-to-end Machine Learning system for early diabetes prediction using clinical and demographic patient data.  
+An end-to-end Machine Learning system for early diabetes prediction using clinical and demographic patient data..  
 
 <p align="center">
   <img src="images/dashboard_2.png" width="950"/>
