@@ -2,9 +2,6 @@
 
 An end-to-end Machine Learning system for early diabetes prediction using clinical and demographic patient data.  
 
-This project was developed as part of the **Applied Data Science (CMPS344)** course at **Cairo University – Faculty of Engineering**.
-
-
 <p align="center">
   <img src="images/dashboard_2.png" width="950"/>
 </p>
